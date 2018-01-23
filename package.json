@@ -22,7 +22,7 @@
     "uuid": "^3.2.1"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "react-scripts start",
     "deploy": "git push heroku master"
   }
 }
