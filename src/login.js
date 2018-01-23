@@ -48,7 +48,7 @@ class Login extends React.Component {
     };
 
     if (valid) {
-      axios.post('http://localhost:3000/auth/signup', data)
+      axios.post('https://mood-shift-api.herokuapp.com/auth/signup', data)
         .then((res) => {
           const token = res.data.token.token;
           localStorage.setItem('mood_app_token', token);
@@ -67,7 +67,7 @@ class Login extends React.Component {
       password: this.state.loginPassword,
     };
     if (valid) {
-      axios.post('http://localhost:3000/auth/login', data)
+      axios.post('https://mood-shift-api.herokuapp.com/auth/login', data)
       .then((res) => {
         const token = res.data.token.token;
         localStorage.setItem('mood_app_token', token);
