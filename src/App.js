@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Login from './login'
-import Dashboard from './dashboard'
+import Login from './pages/login'
+import Dashboard from './pages/dashboard'
 import MediaQuery from 'react-responsive';
 import {
   BrowserRouter,

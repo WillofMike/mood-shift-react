@@ -1,76 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-
-const Wrapper = styled.div`
-  background: lightgrey;
-  height: 100%;
-  display: grid;
-  grid-gap: 3px;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 100px;
-  grid-template-areas:
-      "h . . . ."
-      ". o . . ."
-      ". e p . ."
-      ". b . . ."
-      ". . f . .";
-  header {
-    font-size: 26px;
-    grid-area: h;
-  }
-  h1 {
-    font-size: 16px;
-    font-weight: bold;
-    grid-area: o;
-  }
-  button {
-    font-size: 1em;
-    border-radius: 3px;
-    width: auto;
-    grid-area: b;
-  }
-  #email {
-    height: 20px;
-    width: auto;
-    grid-area: e;
-  }
-  #password {
-    height: 20px;
-    width: auto;
-    grid-area: p;
-  }
-  footer {
-    grid-area: f;
-    padding-top: 200px;
-  }
-`;
-
-
-
-const Form = (props) =>
-  <Wrapper className="container">
-    <header>Mood Shift</header>
-    <h1 className="header">{props.title}</h1>
-      <input
-        id="email"
-        placeholder="Email"
-        type="text"
-        value={props.email}
-        onChange={props.setEmail}
-      />
-      <input
-        id="password"
-        placeholder="Password"
-        type="password"
-        value={props.password}
-        onChange={props.setPassword}
-      />
-    <br/>
-  <button onClick={props.submit}>Submit</button>
-  <footer>Copyright Mood-Shift</footer>
-</Wrapper>;
-
+import Form from '../components/loginForm'
 class Login extends React.Component {
   constructor() {
     super();
@@ -146,18 +77,6 @@ class Login extends React.Component {
           setPassword={this.setLoginPassword}
           submit={this.submitLogin}
         />
-
-        {/* <input
-            placeholder="Email"
-            value={this.state.email}
-            onChange={this.setUserName}
-          />
-          <input
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.setPassword}
-          />
-        <button onClick={this.submitSignup}>Submit</button> */}
       </div>
     )
   }
