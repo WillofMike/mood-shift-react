@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './pages/login'
 import Dashboard from './pages/dashboard'
+import Data from './pages/data'
+import Single from './pages/single'
+import Journal from './pages/journal'
 import MediaQuery from 'react-responsive';
 import {
   BrowserRouter,
@@ -44,11 +47,32 @@ class App extends Component {
       : <Redirect to="/" />
    );
 
+   const renderJournal = () => (
+     this.state.token
+      ? <Journal logout={this.logout} />
+      : <Redirect to="/journal" />
+   );
+
+   const renderData = () => (
+     this.state.token
+      ? <Data logout={this.logout} />
+      : <Redirect to="/data" />
+   );
+
+   const renderSingle = () => (
+     this.state.token
+      ? <Single logout={this.logout} />
+      : <Redirect to="/single" />
+   );
+
     return (
       <BrowserRouter>
         <div>
           <Route exact path="/" render={renderLogin} />
           <Route path="/dashboard" render={renderDashboard} />
+          <Route path="/journal" render={renderJournal} />
+          <Route path="/data" render={renderData} />
+          <Route path="/single" render={renderSingle} />
         </div>
       </BrowserRouter>
     );

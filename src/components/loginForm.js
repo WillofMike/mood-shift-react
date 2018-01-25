@@ -34,18 +34,6 @@ const Button = styled.button`
   grid-area: b;
 `
 
-const Email = styled.div`
-  height: 20px;
-  width: auto;
-  grid-area: e;
-`
-
-const Password = styled.div`
-  height: 20px;
-  width: auto;
-  grid-area: p;
-`
-
 const Footer = styled.div`
   grid-area: f;
   padding-top: 200px;
@@ -56,14 +44,14 @@ const Form = (props) =>
   <Wrapper className="container">
     <Header>Mood Shift</Header>
       <Title className="header">{props.title}</Title>
-    <Email
-        id="email"
+    <input
+        id={props.email}
         placeholder="Email"
         type="text"
         value={props.email}
         onChange={props.setEmail}
       />
-    <Password
+    <input
         id="password"
         placeholder="Password"
         type="password"
