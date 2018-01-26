@@ -44,7 +44,7 @@ class App extends Component {
    const renderDashboard = () => (
      this.state.token
       ? <Dashboard logout={this.logout} />
-    : <Redirect to="/dashboard" />
+    : <Redirect to="/" />
    );
 
    const renderJournal = () => (

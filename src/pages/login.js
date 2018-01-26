@@ -2,6 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Form from '../components/loginForm'
+import SignupForm from '../components/signupForm'
+import background from '../images/background.png'
+
+const Image = styled.img`
+  width: 100%;
+  height: 30%;
+  z-index: -1;
+`
 
 class Login extends React.Component {
   constructor() {
@@ -84,14 +92,15 @@ class Login extends React.Component {
           setPassword={this.setSignupPassword}
           submit={this.submitSignup}
         />
-        <Form
+      <SignupForm
           {...this.state}
           title="Login"
           setEmail={this.setLoginEmail}
           setPassword={this.setLoginPassword}
           submit={this.submitLogin}
         />
-      </div>
+      <Image src={background} />
+    </div>
     )
   }
 

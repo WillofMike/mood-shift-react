@@ -2,39 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from './header'
 import Footer from './footer'
+import LoginHeader from './loginHeader'
 
 const Wrapper = styled.div`
-  background: lightgrey;
-  height: 100%;
-  display: grid;
-  grid-gap: 3px;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 100px;
-  grid-template-areas:
-      "h . . . ."
-      ". o . . ."
-      ". e p . ."
-      ". b . . ."
-      ". . f . .";
+  z-index: 0;
+  margin-top: 200%;
 `
 
 const Title = styled.h1`
   font-size: 16px;
   font-weight: bold;
-  grid-area: o;
+  grid-column: 1/6
 `
 
 const Button = styled.button`
   font-size: 1em;
   border-radius: 3px;
   width: auto;
-  grid-area: b;
 `
 
 
 const Form = (props) =>
-  <Wrapper className="container">
-    <Header />
+  <div className="container">
+    <LoginHeader />
       <Title className="header">{props.title}</Title>
     <input
         id={props.email}
@@ -51,8 +41,7 @@ const Form = (props) =>
         onChange={props.setPassword}
       />
     <br/>
-  <button onClick={props.submit}>Submit</button>
-  <Footer />
-</Wrapper>;
+      <button onClick={props.submit}>Submit</button>
+  </div>;
 
 export default Form

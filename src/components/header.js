@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 
 const Head = styled.header`
   background-color: lightblue;
-  padding: 25px;
   border: 1px solid brown;
 `
 
