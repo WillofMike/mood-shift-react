@@ -34,9 +34,22 @@ class Login extends React.Component {
     if (valid) {
       axios.post('https://mood-shift-api.herokuapp.com/auth/signup', data)
         .then((res) => {
-          const token = res.data.token.token;
+          const tokenRecord = res.data.token;
+          const token = tokenRecord.token;
           localStorage.setItem('mood_app_token', token);
           this.props.setToken(token);
+
+          // create very first day for this user
+          const dayData = {
+            userId: tokenRecord.userId,
+            morningMood: 'neutral',
+            afternoonMood: 'neutral',
+            nightMood: 'neutral',
+          }
+          return axios.post('https://mood-shift-api.herokuapp.com/day', dayData);
+        })
+        .then(res => {
+          console.log('first day was created', res.data)
         })
         .catch((error) => console.log('Error', error));
     }

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import ChooseMood from '../components/chooseMood'
+import axios from 'axios';
+
 // import { whatTimeOfDay } from '../utility/util';
 import { render } from "react-dom";
 import { Card, CardHeader, CardBody, CardFooter } from "react-simple-card";
@@ -25,11 +27,19 @@ class Dashboard extends React.Component {
   submitMood = () => {
     const valid = this.state.selectedEmotion.length > 1
     console.log("is state valid", valid);
-    if (valid){
-      // hit db, flip neutral to 'happy' or whatever they chose
 
-      // hit db from frontend with axios to make PUT request to update Day
-      // also make POST request to create Comment
+    const data = {
+      mood: this.state.enteredMood,
+      emotion: this.state.selectedEmotion,
+      comments: this.state.comment
+    }
+    if (valid){
+      axios.put('https://mood-shift-api.herokuapp.com/days', data)
+        .catch((error) => console.log('Error', error)
+      )
+
+        // axios.post('https://mood-shift-api.herokuapp.com/days', data)
+        //   .catch(())
 
       this.setState({ enteredMood: true });
     }

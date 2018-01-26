@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 import Login from './pages/login'
 import Dashboard from './pages/dashboard'
 import Data from './pages/data'
@@ -8,6 +7,7 @@ import Single from './pages/single'
 import Journal from './pages/journal'
 import MediaQuery from 'react-responsive';
 import {
+  Switch,
   BrowserRouter,
   Route,
   Link,
@@ -67,13 +67,15 @@ class App extends Component {
 
     return (
       <BrowserRouter>
+        <Switch>
         <div>
           <Route exact path="/" render={renderLogin} />
           <Route path="/dashboard" render={renderDashboard} />
-          <Route path="/journal" render={renderJournal} />
+          <Route path="/journal" render={renderJournal} component={Journal}/>
           <Route path="/data" render={renderData} />
           <Route path="/single" render={renderSingle} />
         </div>
+      </Switch>
       </BrowserRouter>
     );
   }

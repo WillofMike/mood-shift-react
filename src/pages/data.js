@@ -1,16 +1,23 @@
 import React from 'react';
 import styled from 'styled-components'
-import DataDashboard from '../components/data'
+import DataDashboard from '../pages/data'
+import graph from '../images/graph.png'
+import {Link} from 'react-router-dom'
+import BarChart from '../components/barChart'
+
 
 const Data = (props) =>
 <div>
   <header>
-    <h1>Data Graphs</h1>
-    {/* <button onClick={this.props.logout}>Graphs</button> */}
-    <button onClick={this.props.logout}>Logout</button>
+      <Link to='/journal'><button onClick={props.journal}>Journal</button></Link>
+      <button onClick={props.logout}>Logout</button>
   </header>
+    <h3>How you felt recently...</h3>
+      <h2>Week to date</h2>
+        <BarChart />
 
-    <h3>How are you feeling?</h3>
+      <h2>Month to date</h2>
+
 </div>
 
 export default Data;

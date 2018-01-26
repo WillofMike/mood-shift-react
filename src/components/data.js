@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import data from '../pages/data'
+import data from './components/data'
+
 
 class DataDashboard extends React.Component {
   constructor() {
@@ -17,12 +18,9 @@ class DataDashboard extends React.Component {
     //   return <ChooseMood setMoodState={this.setMoodState} />
     // }
     return (
-      <div>
-        <button onClick={this.props.logout}>Logout</button>
-        {/* <button onClick={this.props.logout}>Behavior Journal</button> */}
-      <br/>
+      <Data
 
-      </div>
+      />
     );
   }
 }
