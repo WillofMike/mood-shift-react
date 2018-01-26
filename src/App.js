@@ -44,19 +44,19 @@ class App extends Component {
    const renderDashboard = () => (
      this.state.token
       ? <Dashboard logout={this.logout} />
-      : <Redirect to="/" />
+    : <Redirect to="/dashboard" />
    );
 
    const renderJournal = () => (
      this.state.token
       ? <Journal logout={this.logout} />
-      : <Redirect to="/journal" />
+      : <Redirect to="/" />
    );
 
    const renderData = () => (
      this.state.token
       ? <Data logout={this.logout} />
-      : <Redirect to="/data" />
+      : <Redirect to="/" />
    );
 
    const renderSingle = () => (
@@ -71,7 +71,7 @@ class App extends Component {
         <div>
           <Route exact path="/" render={renderLogin} />
           <Route path="/dashboard" render={renderDashboard} />
-          <Route path="/journal" render={renderJournal} component={Journal}/>
+          <Route path="/journal" render={renderJournal} />
           <Route path="/data" render={renderData} />
           <Route path="/single" render={renderSingle} />
         </div>

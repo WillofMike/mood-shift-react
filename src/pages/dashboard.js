@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import ChooseMood from '../components/chooseMood'
 import axios from 'axios';
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 // import { whatTimeOfDay } from '../utility/util';
 import { render } from "react-dom";
@@ -57,10 +59,10 @@ class Dashboard extends React.Component {
     }
     return (
       <div>
+        <Header />
         <button onClick={this.props.logout}>Logout</button>
-        <button onClick={this.props.logout}>Behavior Journal</button>
-        <button onClick={this.props.logout}>Graphs</button>
         <br/>
+        <Footer />
       </div>
     );
   }

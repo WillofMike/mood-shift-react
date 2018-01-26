@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import Header from './header'
+import Footer from './footer'
 
 const Wrapper = styled.div`
   background: lightgrey;
@@ -16,11 +18,6 @@ const Wrapper = styled.div`
       ". . f . .";
 `
 
-const Header = styled.header`
-  font-size: 26px;
-  grid-area: h;
-`
-
 const Title = styled.h1`
   font-size: 16px;
   font-weight: bold;
@@ -34,15 +31,10 @@ const Button = styled.button`
   grid-area: b;
 `
 
-const Footer = styled.div`
-  grid-area: f;
-  padding-top: 200px;
-`
-
 
 const Form = (props) =>
   <Wrapper className="container">
-    <Header>Mood Shift</Header>
+    <Header />
       <Title className="header">{props.title}</Title>
     <input
         id={props.email}
@@ -60,7 +52,7 @@ const Form = (props) =>
       />
     <br/>
   <button onClick={props.submit}>Submit</button>
-  <footer>Copyright Mood-Shift</footer>
+  <Footer />
 </Wrapper>;
 
 export default Form

@@ -5,10 +5,12 @@ import happy from '../images/happy.png'
 import sad from '../images/sad.png'
 import anxious from '../images/anxious.png'
 import { whatTimeOfDay } from '../utility/util';
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 const ChooseMood = (props) =>
   <div>
-    <header><h1>Mood Shift</h1></header>
+    <Header />
       <h3>How are you feeling?</h3>
       <form>
         <img onClick={() => props.setSelectedEmotion('happy')} src={happy}></img>
@@ -26,7 +28,7 @@ const ChooseMood = (props) =>
           />
           <button onClick={props.submitMood}>Submit</button>
       </form>
-    <footer>Copyright Mood-Shift</footer>
+    <Footer />
   </div>
 
 export default ChooseMood;
