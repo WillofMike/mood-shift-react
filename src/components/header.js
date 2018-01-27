@@ -10,7 +10,7 @@ const Head = styled.header`
 const Header = (props) =>
   <div>
     <Head>
-        <Link to='/dashboard'><h1>Mood Shift</h1></Link>
+        <Link to='/dashboard' style={{ textDecoration: 'none' }}><h1>Mood Shift</h1></Link>
         <Link to='/journal'><button onClick={props.journal}>Journal</button></Link>
         <Link to='/data'><button onClick={props.data}>Graphs</button></Link>
     </Head>

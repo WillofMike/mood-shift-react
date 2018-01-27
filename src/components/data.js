@@ -14,9 +14,9 @@ class DataDashboard extends React.Component {
   setMoodState = () => this.setState({ enteredMood: true });
 
   render() {
-    // if (!enteredMood) {
-    //   return <ChooseMood setMoodState={this.setMoodState} />
-    // }
+    if (!enteredMood) {
+      return <ChooseMood setMoodState={this.setMoodState} />
+    }
     return (
       <Data
 
