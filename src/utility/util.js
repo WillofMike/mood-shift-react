@@ -25,21 +25,3 @@ export const whatTimeOfDay = () => {
   if (isAfternoon) return 'afternoon'
   if (isNight) return 'night'
 }
-
-console.log([
-  matchesRange(morning, 0),
-  matchesRange(afternoon, 0),
-  matchesRange(night, 0),
-
-  matchesRange(morning, 11),
-  matchesRange(afternoon, 11),
-  matchesRange(night, 11),
-
-  matchesRange(morning, 16),
-  matchesRange(afternoon, 16),
-  matchesRange(night, 16),
-
-  matchesRange(morning, 23),
-  matchesRange(afternoon, 23),
-  matchesRange(night, 23),
-])

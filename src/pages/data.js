@@ -10,8 +10,7 @@ import { render } from "react-dom";
 
 const Data = (props) =>
 <div>
-    <Header />
-    <button onClick={props.logout}>Logout</button>
+    <Header logout={props.logout}/>
     <h3>How you felt recently...</h3>
       <h2>Week to date</h2>
         <BarChart />

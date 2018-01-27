@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Form from '../components/loginForm'
 import SignupForm from '../components/signupForm'
 import background from '../images/background.png'
+import { backFillDays } from '../utility/backfill'
 
 const Image = styled.img`
   width: 100%;
@@ -73,12 +74,23 @@ class Login extends React.Component {
     };
     if (valid) {
       axios.post('https://mood-shift-api.herokuapp.com/auth/login', data)
-      .then((res) => {
-        const token = res.data.token.token;
-        localStorage.setItem('mood_app_token', token);
-        this.props.setToken(token);
-      })
-      .catch((error) => console.log('Error', error));
+        .then((res) => {
+          const user = res.data.user;
+          const token = res.data.token;
+          localStorage.setItem('mood_app_token', token);
+          this.props.setToken(token);
+          return axios.get(`https://mood-shift-api.herokuapp.com/day/user/${user._id}`)
+        })
+        .then(days => {
+          const lastRecentDay = days[0];
+          console.log('the last recent day', lastRecentDay)
+          const daysToCreate = backFillDays(lastRecentDay);
+          const postRequests = daysToCreate.map(day => {
+            return axios.post('https://mood-shift-api.herokuapp.com/day', day)
+          });
+          return Promise.all(postRequests);
+        })
+        .catch((error) => console.log('Error', error));
     }
   }
 

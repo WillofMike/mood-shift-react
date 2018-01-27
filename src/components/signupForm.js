@@ -18,14 +18,14 @@ const SignupForm = (props) =>
   <div>
       <Title className="header">{props.title}</Title>
     <input
-        id={props.email}
+        id="signup-email"
         placeholder="Email"
         type="text"
         value={props.email}
         onChange={props.setEmail}
       />
     <input
-        id="password"
+        id="signup-password"
         placeholder="Password"
         type="password"
         value={props.password}

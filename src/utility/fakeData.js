@@ -1,25 +1,19 @@
-import React from 'react'
-import c3 from 'c3'
-import axios from 'axios'
-import {
-  moods,
-  getWeekDays,
-  createMoodColumns
-} from '../utility/monthTransform'
-
-const FakeDataMonth = [{
+export default [{
+  _id: '5a6cd68ce3688a00142ab001',
   date: '01-02-2018',
   morningMood: 'mad',
   afternoonMood: 'mad',
   nightMood: 'sad',
 },
 {
+  _id: 'a6bc5989fd0e60014b861b7',
   date: '01-03-2018',
   morningMood: 'neutral',
   afternoonMood: 'happy',
   nightMood: 'sad',
 },
 {
+  _id: '5a6bc30e9fd0e60014b861b4',
   date: '01-04-2018',
   morningMood: 'sad',
   afternoonMood: 'happy',
@@ -187,55 +181,3 @@ const FakeDataMonth = [{
   afternoonMood: 'happy',
   nightMood: 'anxious',
 }]
-
-
-class BarChartMonth extends React.Component {
-  constructor() {
-    super()
-    this.state = {};
-  }
-
-  componentDidMount() {
-    axios.get("https://mood-shift-api.herokuapp.com/day")
-      .then((res) => {
-        // real data
-        // this.renderBarChartMonth(res.data)
-        this.renderBarChartMonth(FakeDataMonth)
-      })
-  }
-
-  renderBarChartMonth = (FakeDataMonth) => {
-    c3.generate({
-      bindto: '#chartMonth',
-      data: {
-        columns: createMoodColumns(FakeDataMonth),
-        // columns: [
-        //     ['happy',   3, 1, 0, 0, 0, 2],
-        //     ['sad',     0, 0, 0, 2, 0, 0],
-        //     ['mad',     0, 0, 0, 0, 2, 0],
-        //     ['anxious', 0, 2, 0, 1, 1, 0],
-        //     ['neutral', 0, 0, 3, 0, 0, 1],
-        // ],
-        type: 'bar',
-        groups: [moods]
-      },
-      axis: {
-        x: {
-          type: 'category',
-          categories: getWeekDays(FakeDataMonth)
-        }
-      }
-    });
-  }
-
-  render(){
-    console.log(this.state.apiData);
-    return(
-      <div id="chartMonth"></div>
-    )
-  }
-}
-
-
-
-export default BarChartMonth;

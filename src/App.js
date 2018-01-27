@@ -6,6 +6,7 @@ import Data from './pages/data'
 import Single from './pages/single'
 import Journal from './pages/journal'
 import MediaQuery from 'react-responsive';
+import fakeData from './utility/fakeData'
 import {
   Switch,
   BrowserRouter,
@@ -35,34 +36,34 @@ class App extends Component {
   }
 
   render() {
-    const renderLogin = () => (
+    const renderLogin = (props) => (
       this.state.token
        ? <Redirect to="/dashboard" />
-       : <Login setToken={this.setToken} />
+       : <Login {...props} setToken={this.setToken} />
    );
 
-   const renderDashboard = () => (
+   const renderDashboard = (props) => (
      this.state.token
-      ? <Dashboard logout={this.logout} />
+      ? <Dashboard {...props} logout={this.logout} />
     : <Redirect to="/" />
    );
 
-   const renderJournal = () => (
+   const renderJournal = (props) => (
      this.state.token
-      ? <Journal logout={this.logout} />
+      ? <Journal {...props} days={fakeData} logout={this.logout} />
       : <Redirect to="/" />
    );
 
-   const renderData = () => (
+   const renderData = (props) => (
      this.state.token
-      ? <Data logout={this.logout} />
+      ? <Data {...props} logout={this.logout} />
       : <Redirect to="/" />
    );
 
-   const renderSingle = () => (
+   const renderSingle = (props) => (
      this.state.token
-      ? <Single logout={this.logout} />
-      : <Redirect to="/single" />
+      ? <Single {...props} logout={this.logout} />
+      : <Redirect to="/" />
    );
 
     return (
@@ -73,7 +74,7 @@ class App extends Component {
           <Route path="/dashboard" render={renderDashboard} />
           <Route path="/journal" render={renderJournal} />
           <Route path="/data" render={renderData} />
-          <Route path="/single" render={renderSingle} />
+          <Route path="/single/:id" render={renderSingle} />
         </div>
       </Switch>
       </BrowserRouter>

@@ -13,6 +13,7 @@ const Header = (props) =>
         <Link to='/dashboard' style={{ textDecoration: 'none' }}><h1>Mood Shift</h1></Link>
         <Link to='/journal'><button onClick={props.journal}>Journal</button></Link>
         <Link to='/data'><button onClick={props.data}>Graphs</button></Link>
+        <button onClick={props.logout}>Logout</button>
     </Head>
   </div>
 

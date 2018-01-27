@@ -27,14 +27,14 @@ const Form = (props) =>
     <LoginHeader />
       <Title className="header">{props.title}</Title>
     <input
-        id={props.email}
+        id="login-email"
         placeholder="Email"
         type="text"
         value={props.email}
         onChange={props.setEmail}
       />
     <input
-        id="password"
+        id="login-password"
         placeholder="Password"
         type="password"
         value={props.password}
