@@ -18,7 +18,8 @@ class BarChartMonth extends React.Component {
     axios.get(`https://mood-shift-api.herokuapp.com/day/user/${this.props.userId}`)
       .then((res) => {
         // real data
-        this.renderBarChartMonth(res.data)
+        const data = res.data.slice(0, 30).reverse();
+        this.renderBarChartMonth(data)
       })
   }
 
