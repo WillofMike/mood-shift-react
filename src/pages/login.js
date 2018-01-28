@@ -46,7 +46,8 @@ class Login extends React.Component {
           const tokenRecord = res.data.token;
           const token = tokenRecord.token;
           localStorage.setItem('mood_app_token', token);
-          this.props.setToken(token);
+          localStorage.setItem('user_id', tokenRecord.userId);
+          this.props.setToken(tokenRecord);
 
           // create very first day for this user
           const dayData = {
@@ -76,14 +77,14 @@ class Login extends React.Component {
       axios.post('https://mood-shift-api.herokuapp.com/auth/login', data)
         .then((res) => {
           const user = res.data.user;
-          const token = res.data.token;
+          const token = res.data.token.token;
           localStorage.setItem('mood_app_token', token);
-          this.props.setToken(token);
+          localStorage.setItem('user_id', user._id);
+          this.props.setToken(res.data.token);
           return axios.get(`https://mood-shift-api.herokuapp.com/day/user/${user._id}`)
         })
-        .then(days => {
-          const lastRecentDay = days[0];
-          console.log('the last recent day', lastRecentDay)
+        .then(res => {
+          const lastRecentDay = res.data[0];
           const daysToCreate = backFillDays(lastRecentDay);
           const postRequests = daysToCreate.map(day => {
             return axios.post('https://mood-shift-api.herokuapp.com/day', day)

@@ -1,5 +1,6 @@
 import React from 'react'
 import c3 from 'c3'
+import { getMoodCounts } from '../utility/transforms'
 
 class PieChart extends React.Component {
   constructor() {
@@ -7,23 +8,17 @@ class PieChart extends React.Component {
   }
 
   componentDidMount() {
-    this.renderChart(this.props.data)
+    this.renderChart()
   }
 
   renderChart = () => {
     c3.generate({
         data: {
-            columns: [
-                ['happy', 1],
-                ['mad', 0],
-                ['sad', 0],
-                ['anxious', 2],
-                ['neutral', 0],
-            ],
+            columns: getMoodCounts(this.props.day),
             type : 'donut'
         },
         donut: {
-            title: "Ur Mom"
+            title: "Your Mood"
         }
     });
   }

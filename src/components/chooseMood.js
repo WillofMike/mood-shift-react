@@ -10,8 +10,9 @@ import Footer from '../components/footer'
 
 const ChooseMood = (props) =>
   <div>
-    <Header />
+    <Header logout={props.logout} />
       <h3>How are you feeling?</h3>
+    <button onClick={props.skip}>Skip</button>
       <form>
         <img onClick={() => props.setSelectedEmotion('happy')} src={happy}></img>
         <h5>Happy</h5>
