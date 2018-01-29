@@ -11,6 +11,15 @@ import { whatTimeOfDay } from '../utility/util';
 import { render } from "react-dom";
 import { Card, CardHeader, CardBody, CardFooter } from "react-simple-card";
 
+const Title = styled.h1`
+  text-align:center;
+  color: #FF6300;
+  font-family: 'Montserrat', sans-serif;
+`
+const Wrapper = styled.div`
+  margin: 20px;
+`
+
 class Dashboard extends React.Component {
   constructor() {
     super();
@@ -64,14 +73,14 @@ class Dashboard extends React.Component {
     }
     console.log('what is logout', this.props.logout)
     return (
-      <div>
+      <Wrapper>
           <Header logout={this.props.logout}/>
-          <h3>How you felt recently...</h3>
-            <h2>Week to date</h2>
-              <BarChart userId={this.props.userId}/>
-            <h2>Month to date</h2>
+        <Title>How you felt recently...</Title>
+          <Title>Week to date</Title>
+          <BarChart userId={this.props.userId}/>
+            <Title>Month to date</Title>
           <BarChartMonth userId={this.props.userId}/>
-      </div>
+      </Wrapper>
     );
   }
 }
