@@ -80,6 +80,7 @@ class Dashboard extends React.Component {
           <BarChart userId={this.props.userId}/>
             <Title>Month to date</Title>
           <BarChartMonth userId={this.props.userId}/>
+          <Footer />
       </Wrapper>
     );
   }

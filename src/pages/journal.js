@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import styled from 'styled-components';
 import Card from '../components/card'
 import Header from '../components/header'
+import Footer from '../components/footer'
 import {Link} from 'react-router-dom'
 import fakeData from '../utility/fakeData'
 import axios from 'axios'
@@ -19,7 +20,7 @@ const Title = styled.h1`
   font-size: 60px;
   color: #FF6300;
   font-family: 'Montserrat', sans-serif;
-  margin: 20px;  
+  margin: 20px;
 `
 
 class Journal extends React.Component{
@@ -50,6 +51,7 @@ class Journal extends React.Component{
           this.state.days && this.state.days.map((day, index) => <Card key={index} day={day} />)
         }
       </Wrapper>
+      <Footer />
       </div>
     )
   }

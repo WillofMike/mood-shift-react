@@ -18,6 +18,10 @@ const Image = styled.img`
   }
 `
 
+const Button = styled.div`
+  text-align:center;
+`
+
 const Wrapper = styled.div`
   display: grid;
    grid: repeat(2, 3fr) / auto-flow 2fr;
@@ -69,8 +73,10 @@ const ChooseMood = (props) =>
             value={props.selectedEmotion}
           /> */}
         </Wrapper>
-          <button onClick={props.skip} className="btn btn-primary">Skip</button>
-        <button onClick={props.submitMood} className="btn btn-danger">Submit</button>
+        <Button>
+          <button onClick={props.skip} className="btn btn-primary">Update Mood</button>
+        <button onClick={props.submitMood} className="btn btn-success">Submit Mood</button>
+      </Button>
       </form>
     <Footer />
   </div>
