@@ -74,7 +74,7 @@ const ChooseMood = (props) =>
           /> */}
         </Wrapper>
         <Button>
-          <button onClick={props.skip} className="btn btn-primary">Update Mood</button>
+          <button onClick={props.skip} className="btn btn-primary">Skip Update</button>
         <button onClick={props.submitMood} className="btn btn-success">Submit Mood</button>
       </Button>
       </form>
