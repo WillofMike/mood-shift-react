@@ -3,7 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Form from '../components/loginForm'
 import SignupForm from '../components/signupForm'
-import background from '../images/background.png'
+import loginbackground from '../images/loginbackground.png'
 import { backFillDays } from '../utility/backfill'
 
 const Image = styled.img`
@@ -112,7 +112,7 @@ class Login extends React.Component {
           setPassword={this.setLoginPassword}
           submit={this.submitLogin}
         />
-      <Image src={background} />
+      <Image src={loginbackground} />
     </div>
     )
   }

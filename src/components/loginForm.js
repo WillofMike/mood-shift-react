@@ -4,21 +4,19 @@ import Header from './header'
 import Footer from './footer'
 import LoginHeader from './loginHeader'
 
+
 const Wrapper = styled.div`
-  z-index: 0;
-  margin-top: 200%;
+  display: grid;
+  height: 100%;
+  text-align: center;
+  padding-left: 25%;
+  padding-right: 25%;
 `
 
 const Title = styled.h1`
   font-size: 16px;
   font-weight: bold;
-  grid-column: 1/6
-`
-
-const Button = styled.button`
-  font-size: 1em;
-  border-radius: 3px;
-  width: auto;
+  text-align: center;
 `
 
 
@@ -26,7 +24,9 @@ const Form = (props) =>
   <div className="container">
     <LoginHeader />
       <Title className="header">{props.title}</Title>
+    <Wrapper>
     <input
+        className="form-control"
         id="login-email"
         placeholder="Email"
         type="text"
@@ -34,6 +34,7 @@ const Form = (props) =>
         onChange={props.setEmail}
       />
     <input
+        className="form-control"
         id="login-password"
         placeholder="Password"
         type="password"
@@ -41,7 +42,8 @@ const Form = (props) =>
         onChange={props.setPassword}
       />
     <br/>
-      <button onClick={props.submit}>Submit</button>
+  <button onClick={props.submit} className="btn btn default">Signup</button>
+  </Wrapper>
   </div>;
 
 export default Form

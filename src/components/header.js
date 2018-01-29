@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom'
 import moods from '../images/moods.png'
 
-const Head = styled.header`
-`
 const Title = styled.h1`
   text-align:center;
   font-size: 60px;
@@ -21,12 +19,12 @@ const Image = styled.img`
 
 const Header = (props) =>
   <div>
-    <Head>
+    <div>
         <Link to='/dashboard' style={{ textDecoration: 'none' }}><Image src={moods}/></Link>
         <Link to='/dashboard' style={{ textDecoration: 'none' }}><Title>Shift Your Attitude</Title></Link>
         <Link to='/journal'><button onClick={props.journal} className="btn btn-default">Journal</button></Link>
         <button onClick={props.logout} className="btn btn-default">Logout</button>
-    </Head>
+    </div>
   </div>
 
   export default Header;
