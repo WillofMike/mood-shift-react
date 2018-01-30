@@ -31,7 +31,7 @@ const Wrapper = styled.div`
    margin: 20px
 `
 const Background = styled.div`
-  background-color: #f5f5f5;
+  background-color: #FFB388;
   border-radius: 5px;
   font-family: 'Montserrat', sans-serif;
 `
@@ -74,8 +74,8 @@ const ChooseMood = (props) =>
           /> */}
         </Wrapper>
         <Button>
+          <button onClick={props.submitMood} className="btn btn-success">Submit Mood</button>
           <button onClick={props.skip} className="btn btn-primary">Skip Update</button>
-        <button onClick={props.submitMood} className="btn btn-success">Submit Mood</button>
       </Button>
       </form>
     <Footer />
