@@ -18,7 +18,7 @@ An awareness app that tracks your mood to make you happier throughout your days.
 2. Check the list of needs for what changes can be added
 3. Create a pull request and an admin will give you feedback
 
-## Technologies user
+## Technologies used
 - Mongodb
 - React
 - C3
@@ -26,8 +26,6 @@ An awareness app that tracks your mood to make you happier throughout your days.
 - Heroku
 - AWS
 
-## Admin
-- [Mike Williams](https://github.com/willofmike "Mikes GitHub")
 
 ## Screenshots
 ![alt text](https://github.com/WillofMike/mood-shift-react/blob/master/src/images/screenshots/moodshift-login.png?raw=true "Login Page")
@@ -46,3 +44,6 @@ An awareness app that tracks your mood to make you happier throughout your days.
 
 ![alt text](https://github.com/WillofMike/mood-shift-react/blob/master/src/images/screenshots/moodshift-day.png?raw=true "Day page & pie chart")
 - You can look at an individual day selected from the journal
+
+## Admin
+- [Mike Williams](https://github.com/willofmike "Mikes GitHub")
